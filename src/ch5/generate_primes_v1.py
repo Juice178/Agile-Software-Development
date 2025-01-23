@@ -1,20 +1,22 @@
-from math import sqrt
+from math import sqrt, ceil
+from typing import Optional
+
 
 class GeneratePrimes:
     @staticmethod
-    def generate_primes(max_value: int) -> int:
+    def generate_primes(max_value: int) -> list[Optional[int]]:
         if max_value >= 2:
             s: int = max_value + 1
             f: bool = [False] * s
-            i: int
+            i: int = 0
 
             for i in range(s):
                 f[i] = True
             
             f[0] = f[1] = False
 
-            j: int
-            for i in range(2, sqrt(s)):
+            j: int = 0
+            for i in range(2, ceil(sqrt(s))+1):
                 if f[i]:
                     for j in range(2*i, s, i):
                         f[j] = False
@@ -26,13 +28,14 @@ class GeneratePrimes:
             
             primes: list[int] = [0] * count
 
-            for i in range(s):
+            j = 0
+            for i in range(0, s):
                 if f[i]:
                     primes[j] = i
                     j += 1
 
             return primes
         else:
-            return int[0]
+            return []
 
 
