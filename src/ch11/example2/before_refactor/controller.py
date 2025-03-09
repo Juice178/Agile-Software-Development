@@ -4,9 +4,19 @@ from thermometer import Thermometer
 
 def regulate(min_temp: float, max_temp: float) -> None:
     temperature: float = Thermometer.read()
-    if temperature > min_temp and temperature < max_temp:
+    if _is_comfortable():
+        print("Comfortable temperature.")
         return
-    if temperature < min_temp:
+    if _is_too_cold():
         Furnace.engage()
-    if temperature > max_temp:
+    if _is_too_hot():
         Furnace.disengage()
+
+    def _is_comfortable() -> bool:
+        return temperature > min_temp and temperature < max_temp
+    
+    def _is_too_cold() -> bool:
+        return temperature < min_temp
+    
+    def _is_too_hot() -> bool:
+        return temperature > max_temp
