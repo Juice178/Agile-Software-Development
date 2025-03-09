@@ -4,10 +4,10 @@ from time import sleep
 
 
 class Button(Thread):
+    _its_lamp: Lamp = Lamp
     def __init__(self) -> None:
         super().__init__(name='button', daemon=True)
         self.running = False
-        self._its_lamp = Lamp()
         self._pushed = False
         self._state = 'off'
     

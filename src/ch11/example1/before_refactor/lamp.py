@@ -1,7 +1,9 @@
 class Lamp:
-    def turn_on(self) -> None:
+    @classmethod
+    def turn_on(cls) -> None:
         print("Turn on lamp")
         print("⭐⭐⭐⭐⭐⭐")
-    def turn_off(self) -> None:
+    @classmethod
+    def turn_off(cls) -> None:
         print("Turn off lamp")
         print("📴📴📴📴📴📴")
