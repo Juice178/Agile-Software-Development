@@ -1,12 +1,12 @@
-from time import sleep
-import consts
 from furnace import Furnace
+from thermometer import Thermometer
 
 
 def regulate(min_temp: float, max_temp: float) -> None:
-    if consts.TEMPERATURE > min_temp and consts.TEMPERATURE < max_temp:
+    temperature: float = Thermometer.read()
+    if temperature > min_temp and temperature < max_temp:
         return
-    if consts.TEMPERATURE < min_temp:
+    if temperature < min_temp:
         Furnace.engage()
-    if consts.TEMPERATURE > max_temp:
+    if temperature > max_temp:
         Furnace.disengage()

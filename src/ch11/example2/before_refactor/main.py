@@ -12,7 +12,6 @@ MAX_TEMP_IN_CELSIUS: Final[float] = 18.0
 def main() -> None:
     while True:
         consts.TEMPERATURE = uniform(-10.0, 30)
-        print(f"TEMPERATURE IS: {consts.TEMPERATURE}")
         regulate(MIN_TEMP_IN_CELSIUS, MAX_TEMP_IN_CELSIUS)
         sleep(10)
 
