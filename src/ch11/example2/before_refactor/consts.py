@@ -1,0 +1,1 @@
+TEMPERATURE: float = 20.0
